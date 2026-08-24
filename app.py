@@ -9,9 +9,8 @@ import docx
 load_dotenv()
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = '/tmp/uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
-
 # Free Hugging Face model (instruction-tuned, good for text analysis tasks)
 # You can swap this with any other free chat/instruct model on Hugging Face
 HF_MODEL = "deepseek-ai/DeepSeek-V4-Flash-0731"
