@@ -1,64 +1,129 @@
-# AI Resume Evaluator (Free — Hugging Face Version)
+<div align="center">
 
-AI system jo resume (PDF/DOCX) analyze karta hai aur skills, structure, aur improvement areas par feedback deta hai. Ye version **free** hai — OpenAI ki jagah Hugging Face ka free-tier model use karta hai.
+# 🚀 AI Resume Evaluator
+### *Free & Powered by Hugging Face* 🤗
 
-## Features
-- Resume upload (PDF ya DOCX)
-- LLM (Hugging Face Mistral-7B-Instruct) se content analysis — **free**
-- Improvement suggestions
-- Simple web interface (Flask)
+**Apna resume upload karo, AI se instant feedback pao — bilkul FREE! 💯**
 
-## Hugging Face Token Kaise Banayein (Free)
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Backend-000000?style=for-the-badge&logo=flask&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-Mistral--7B-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Free](https://img.shields.io/badge/Cost-100%25%20FREE-brightgreen?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-1. https://huggingface.co par account banayein (agar nahi hai to)
-2. Settings → Access Tokens → "New Token" par click karein
-3. Type "Read" select karein aur token generate karein
-4. Token copy karein — ye `.env` file mein use hoga
+</div>
 
-Free tier mein limited requests milti hain (rate limits), lekin testing aur is task ke liye kaafi hain.
+---
 
-## Setup
+## ✨ Ye Kya Hai?
 
-1. Virtual environment banayein aur activate karein:
-   ```
-   python -m venv venv
-   venv\Scripts\activate      # Windows
-   source venv/bin/activate   # Mac/Linux
-   ```
+Ek **AI-powered resume checker** jo tumhara PDF/DOCX resume padhta hai aur batata hai:
 
-2. Dependencies install karein:
-   ```
-   pip install -r requirements.txt
-   ```
+| 🔍 Kya Check Hota Hai | 💡 Kya Milta Hai |
+|---|---|
+| Skills & Keywords | Missing skills ka suggestion |
+| Resume Structure | Formatting improvement tips |
+| Content Quality | Weak points highlight |
+| Overall Impression | Actionable feedback |
 
-3. `.env.example` ko `.env` mein rename karein aur apna Hugging Face token daalein:
-   ```
-   HF_TOKEN=hf_xxxxxxxxxxxx
-   ```
+> 💸 **Best Part?** Isme OpenAI ka paid API nahi lagta — **Hugging Face ka FREE Inference API** use hota hai, so zero cost pe chalao! 🎉
 
-4. App run karein:
-   ```
-   python app.py
-   ```
+---
 
-5. Browser mein open karein:
-   ```
-   http://127.0.0.1:5000
-   ```
+## 🎯 Features
 
-## Project Structure
+- 📄 **Resume Upload** — PDF ya DOCX, dono support
+- 🧠 **LLM Analysis** — `Mistral-7B-Instruct-v0.3` free model se deep content analysis
+- 📈 **Improvement Suggestions** — Practical aur specific feedback
+- 🌐 **Simple Web UI** — Flask-based, no complex setup
+- 🆓 **100% Free** — Sirf ek free HF token chahiye
+
+---
+
+## 🔑 Hugging Face Token Kaise Banayein (2 min ka kaam)
+
+```
+1️⃣  https://huggingface.co par account banao
+2️⃣  Settings → Access Tokens → "New Token"
+3️⃣  Type = "Read" select karo → Generate
+4️⃣  Token copy karo → .env file mein daalo
+```
+
+> ⚡ Free tier mein rate limits hain, lekin testing/personal use ke liye **more than enough** hai.
+
+---
+
+## ⚙️ Quick Setup
+
+### 1️⃣ Virtual Environment
+
+```bash
+python -m venv venv
+venv\Scripts\activate      # 🪟 Windows
+source venv/bin/activate   # 🍎🐧 Mac/Linux
+```
+
+### 2️⃣ Dependencies Install Karo
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3️⃣ Token Setup Karo
+
+`.env.example` ko `.env` mein rename karo aur apna token daalo:
+
+```env
+HF_TOKEN=hf_xxxxxxxxxxxx
+```
+
+### 4️⃣ App Run Karo
+
+```bash
+python app.py
+```
+
+### 5️⃣ Browser Mein Kholo 🎉
+
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 📁 Project Structure
+
 ```
 resume-evaluator-hf/
-├── app.py                 # Main Flask app (Hugging Face backend logic)
-├── requirements.txt        # Python dependencies
-├── .env.example             # HF token template
-├── templates/
-│   └── index.html         # Upload form + feedback display
-└── uploads/                # Uploaded resumes get stored here
+├── 🐍 app.py              # Main Flask app + HF backend logic
+├── 📦 requirements.txt    # Python dependencies
+├── 🔐 .env.example        # HF token template
+├── 📂 templates/
+│   └── 🖥️ index.html      # Upload form + feedback UI
+└── 📂 uploads/            # Uploaded resumes yahan store hote hain
 ```
 
-## Notes
-- Model: `mistralai/Mistral-7B-Instruct-v0.3` (free via Hugging Face Inference API). Aap `app.py` mein `HF_MODEL` variable change karke koi bhi doosra free instruct model use kar sakte hain.
-- Agar model "loading" error de to thodi der (20-30 sec) baad dobara try karein — free inference API kabhi kabhi cold-start leta hai.
-- `.env` file kabhi bhi GitHub par push na karein (token leak ho sakta hai).
-- Agar aage chal kar zyada reliable/fast chahiye to OpenAI wala version (paid) use kar sakte hain — wo bhi maine pehle diya tha.
+---
+
+## 💡 Pro Tips
+
+- 🔄 **Model change karna hai?** `app.py` mein `HF_MODEL` variable edit karo — koi bhi free instruct model use kar sakte ho
+- ⏳ **"Model loading" error aaya?** Chill karo, 20-30 sec wait karke retry karo — free API ka cold-start hota hai
+- 🚫 **`.env` kabhi GitHub par push mat karo** — token leak ho sakta hai!
+- 💎 **Zyada speed/reliability chahiye?** Paid OpenAI version bhi available hai — link neeche 👇
+
+---
+
+## 🔗 Related
+
+> 🌟 **OpenAI (Paid) Version** bhi available hai agar zyada fast & reliable chahiye — pehle wala already diya hua hai.
+
+---
+
+<div align="center">
+
+### ⭐ Agar pasand aaya to star zaroor dena!
+
+Made with 🧠 + ☕ + 🤗 Hugging Face
+
+</div>
